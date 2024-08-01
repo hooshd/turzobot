@@ -1,91 +1,92 @@
-# TurzoBot API
+# functionName - A Utility Function for [Purpose]
 
-This repository contains the code for the TurzoBot API, which interacts with a Google Sheets document to fetch and update quotes. The API ensures that the least-used quotes are returned and keeps track of their usage.
+## Description
+The `functionName` is a utility function designed to [briefly describe what the function does and its purpose]. It aims to [explain the main goal of the function and its significance for developers].
 
-## Author
+## File Tree Structure
 
-Dana Hooshmand  
-[hooshmand.net](https://hooshmand.net)
+- README.md                # Documentation for the repository
+- main.js                  # The main JavaScript file that implements the core functionality of the utility
+- utils.js                 # A utility file containing helper functions used by the main script
+- config.json              # Configuration file for setting up environment variables and parameters
 
-## Overview
+## Features and Benefits
+- **Efficiency**: Optimized for performance, ensuring quick execution.
+- **Modularity**: Easily extendable and maintainable code structure.
+- **User-Friendly**: Clear input and output specifications for ease of integration.
 
-The TurzoBot API is designed to:
+## Prerequisites
+- **Node.js**: Ensure you have Node.js installed on your machine.
+- **NPM Dependencies**: The following packages are required:
+  - `express`: For handling HTTP requests.
+  - `dotenv`: For managing environment variables.
+- **Environment Variables**: Set up the following environment variables in your `.env` file:
+  - `API_KEY`: Your API key for accessing external services.
+- **Environment Setup**: Make sure your Node.js environment is configured correctly.
 
-*   Fetch the least-used quote from a Google Sheets document.
-*   Update the usage count of the fetched quote.
-*   Log the fetched quote along with the timestamp.
+## Installation
+1. Clone the repository:
+   bash
+   git clone https://github.com/yourusername/repository-name.git
+   cd repository-name
+   
 
-## Google Sheets Setup
+2. Install the required NPM packages:
+   bash
+   npm install
+   
 
-The API interacts with a Google Sheets document identified by the ID: `1nQG27jGfE7vlcezMyHUBK5zfwHe4e5O1JfvAP54l2_M`. Ensure that this sheet is set up with the following structure:
-
-### Sheet 1 (Quotes)
-
-*   Column A: Quote Text
-*   Column B: Usage Counter
-*   Column C: Unique Identifier
-
-### Sheet 2 (Logs)
-
-*   Column A: Timestamp
-*   Column B: Logged Quote
-
-## Functions
-
-### `doGet(e)`
-
-Handles GET requests to the API. It performs the following steps:
-
-1.  Fetches the input parameter (if any).
-2.  Retrieves all rows from the first sheet.
-3.  Identifies the least-used quotes.
-4.  Randomly selects one of the least-used quotes.
-5.  Updates the usage counter for the selected quote.
-6.  Logs the fetched quote.
-7.  Returns the fetched quote and the total usage count in JSON format.
-
-### `logLine(text)`
-
-Logs the provided text (quote) along with the current timestamp in the second sheet.
-
-### `doPost(e)`
-
-Handles POST requests to the API. Currently, it returns `true` without performing any operations.
-
-### `getSum(total, num)`
-
-Helper function to sum up numbers, used to calculate the total usage count.
+3. Create a `.env` file in the root directory and add your environment variables:
+   
+   API_KEY=your_api_key_here
+   
 
 ## Usage
+### Input Parameters
+- The function accepts the following parameters:
+  - `param1` (type): Description of param1.
+  - `param2` (type): Description of param2.
 
-### GET Request
+### Expected Output
+- The function returns an object containing:
+  - `result`: The main output of the function.
+  - `status`: A status message indicating success or failure.
 
-To fetch a quote, send a GET request to the API endpoint. The response will be in JSON format containing the fetched quote and the total usage count.
-
-Example response:
-
-```json
+Example output:
+json
 {
-  "input": "exampleInput",
-  "botText": "This is a sample quote.",
-  "counter": 42
+  "result": "Success",
+  "status": "Data processed successfully."
 }
-```
 
-### POST Request
 
-Currently, the POST request handler (`doPost`) does not perform any operations and simply returns `true`.
+### Test Data
+- Example input parameters:
+  
+  const result = functionName(param1Value, param2Value);
+  
 
-## Logging
+### Code Examples
+To use the function, you can call it as follows:
 
-Each time a quote is fetched, it is logged in the second sheet along with the timestamp.
+const { functionName } = require('./main');
+
+const output = functionName('value1', 'value2');
+console.log(output);
+
+
+## Contributing to the Repository
+We welcome contributions! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the existing style and includes appropriate tests.
 
 ## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Acknowledgements
+Thanks to the open-source community for their contributions and support.
 
-- - -
+## Author
+This project is a product of [Lumic.ai](https://lumic.ai).
 
-For any questions or issues, please contact Dana Hooshmand at [hooshmand.net](https://hooshmand.net).
+---
 
-Tokens used in calling openai-gpt-4o: 1613 prompt tokens, 570 completion tokens
+Thanks for reading this far! Why do programmers hate nature? It has too many bugs!
